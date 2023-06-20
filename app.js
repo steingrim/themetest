@@ -1,184 +1,116 @@
-* {  
-    margin: 0;  
-    padding: 0;  
-    box-sizing: border-box;  
-   }  
-   html {  
-    font-size: 10px;  
-   }  
-   body {  
-    background-color: #000000;  
-    font-family: 'Overpass Mono', monospace;  
-    font-size: 2rem;  
-    height: 100vh;  
-    display: flex;  
-    align-items: center;  
-    justify-content: center;  
-   }  
-   #container {  
-    display: grid;  
-    gap: 2rem;  
-    grid-template-rows: minmax(6rem, 1fr) minmax(10rem, 1fr) 3fr minmax(5rem, 1fr);  
-    grid-template-columns: 1fr 1fr;  
-    grid-template-areas:  
-     'title title'  
-     'board board'  
-     'img alph'  
-     'bot bot';  
-    width: 90vw;  
-    max-width: 900px;  
-    height: 90vh;  
-    margin: auto;  
-   }  
-   #title {  
-    grid-area: title;  
-    color: rgb(50, 177, 149);  
-    font-size: 6rem;  
-    text-align: center;  
-    letter-spacing: 0.8rem;  
-   }  
-   #board {  
-    font-size: 2.5rem;  
-    grid-area: board;  
-    letter-spacing: 0.4rem;  
-    display: flex;  
-    align-items: center;  
-    justify-content: center;  
-    background-color: lightblue;  
-    text-transform: uppercase;  
-    text-align: center;  
-    padding: 2rem;  
-    border-radius: 1rem;  
-   }  
-   #hangin-dude {  
-    display: flex;  
-    align-items: center;  
-    justify-content: center;  
-    grid-area: img;  
-    background-color: lightcoral;  
-    padding: 1rem;  
-    border-radius: 1rem;  
-    min-height: 350px;  
-   }  
-   #hangin-dude img {  
-    width: 90%;  
-   }  
-   #alphabet {  
-    grid-area: alph;  
-    display: flex;  
-    flex-wrap: wrap;  
-    justify-content: center;  
-    align-content: center;  
-    background-color: lightgoldenrodyellow;  
-    padding: 5rem;  
-    text-transform: uppercase;  
-    text-align: center;  
-    border-radius: 1rem;  
-   }  
-   h1 {  
-    width: 100%;  
-   }  
-   #timer {  
-    grid-area: bot;  
-    font-size: 2.5rem;  
-    background-color: lightseagreen;  
-    text-align: center;  
-    display: flex;  
-    align-items: center;  
-    justify-content: center;  
-    padding: 3rem;  
-    border-radius: 1rem;  
-   }  
-   .letter {  
-    display: flex;  
-    align-items: center;  
-    justify-content: center;  
-    border: 1px solid rgba(0, 0, 0, 0.733);  
-    border-radius: 0.8rem;  
-    width: 4rem;  
-    height: 4rem;  
-    margin: 0.5rem;  
-    cursor: pointer;  
-   }  
-   .letter:hover {  
-    border: 2px solid rgb(7, 145, 155);  
-    color: rgb(7, 145, 155);  
-    box-shadow: 0px 0px 12px 0px rgba(180, 192, 197, 0.389);  
-   }  
-   .btn {  
-    margin-top: 3rem;  
-    border: 2px solid black;  
-    border-radius: 0.5rem;  
-    padding: 1rem 2rem;  
-    cursor: pointer;  
-   }  
-   .btn:hover {  
-    box-shadow: 0px 0px 12px 0px rgba(180, 192, 197, 0.4);  
-    background-color: rgb(255, 255, 229);  
-   }  
-   .play {  
-    color: green;  
-   }  
-   .play:hover {  
-    cursor: pointer;  
-    font-size: 40px;  
-    transition: all 0.2s ease-in-out;  
-   }  
-   @media screen and (max-width: 910px) {  
-    #alphabet {  
-     padding: 2rem;  
-    }  
-    .letter {  
-     font-size: 2rem;  
-     width: 3rem;  
-     height: 3rem;  
-    }  
-   }  
-   @media screen and (max-width: 610px) {  
-    #container {  
-     grid-template-rows:  
-      minmax(10rem, 1fr) minmax(10rem, 1fr) minmax(100px, 3fr) minmax(  
-       100px,  
-       3fr  
-      )  
-      minmax(6rem, 1fr);  
-     grid-template-columns: 1fr;  
-     grid-template-areas:  
-      'title'  
-      'board'  
-      'img'  
-      'alph'  
-      'bot';  
-    }  
-    #hangin-dude img {  
-     width: auto;  
-     height: 100%;  
-    }  
-    #alphabet {  
-     padding: 1.5rem;  
-    }  
-    .letter {  
-     padding: 0.5rem;  
-     margin: 0.5rem;  
-    }  
-    #board {  
-     font-size: 2rem;  
-     display: flex;  
-     /* flex-wrap: wrap; */  
-     align-items: center;  
-     justify-content: center;  
-    }  
-    h1 {  
-     margin-top: 2rem;  
-    }  
-    .btn {  
-     margin-top: 0.5rem;  
-    }  
-   }  
-   @media screen and (max-width: 430px) {  
-    .letter {  
-     font-size: 1.5rem;  
-     height: 2.5rem;  
-     width: 2.5rem;  
-    }  
-   }  
+let letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';  
+const alphabet = document.getElementById('alphabet');  
+const passwordBoard = [  
+ 'A bad workman always blames his tools',  
+ 'A bird in hand is worth two in the bush',  
+ 'An apple a day keeps the doctor away',  
+ 'Better to wear out than to rust out',  
+ 'Don’t judge a book by its cover',  
+ 'Good things come to those who wait.',  
+ 'If you can’t beat them, join them',  
+ 'It’s no use crying over spilt milk',  
+];  
+const passwordDiv = document.querySelector('#board');  
+const imgDiv = document.querySelector('#hangin-dude');  
+const random = Math.floor(Math.random() * passwordBoard.length);  
+const password = passwordBoard[random];  
+const yes = new Audio('yes.wav');  
+const no = new Audio('no.wav');  
+const win = new Audio('nice-work.wav');  
+const lose = new Audio('oh-my-god-1.wav');  
+let fail = 1;  
+let countDown;  
+const start = function () {  
+ letters.split('').forEach(letter => {  
+  const html = `<div class="letter">${letter}</div>`;  
+  alphabet.insertAdjacentHTML('beforeend', html);  
+ });  
+ showPassword();  
+ showHangman(fail);  
+};  
+window.onload = start;  
+const passwordDashed = password.split('').map(letter => {  
+ if (letter === ' ') return ' ';  
+ else if (letter === '’') return '’';  
+ else if (letter === ',') return ',';  
+ else return '_';  
+});  
+const showPassword = function () {  
+ passwordDiv.innerHTML = passwordDashed.join('');  
+};  
+const showHangman = function (nr) {  
+ imgDiv.innerHTML = `<img src="img/${nr}.svg" alt="" />`;  
+};  
+const checkForLetter = function (e) {  
+ if (e.target.classList.contains('letter')) {  
+  if (password.toUpperCase().split('').includes(e.target.textContent)) {  
+   yes.play();  
+   password  
+    .toUpperCase()  
+    .split('')  
+    .forEach((letter, i, arr) => {  
+     if (letter === e.target.textContent) {  
+      passwordDashed[i] = letter;  
+      showPassword();  
+     }  
+    });  
+   deactivateLetter(true, e.target);  
+  } else {  
+   no.play();  
+   fail++;  
+   showHangman(fail);  
+   deactivateLetter(false, e.target);  
+  }  
+  if (fail == 6) {  
+   finish(false);  
+  }  
+  if (password.toUpperCase() === passwordDashed.join('')) {  
+   finish(true);  
+  }  
+ }  
+};  
+alphabet.addEventListener('click', checkForLetter);  
+const deactivateLetter = function (hit, letter, audio) {  
+ letter.style.border = hit  
+  ? '1px solid rgb(50, 177, 149)'  
+  : '1px solid rgba(255, 0, 0, 0.338)';  
+ letter.style.backgroundColor = hit  
+  ? 'rgb(50, 177, 149)'  
+  : 'rgba(255, 0, 0, 0.338)';  
+ letter.style.color = 'white';  
+ letter.style.cursor = 'default';  
+};  
+const finish = function (succes) {  
+ if (succes) {  
+  alphabet.innerHTML = `<h1>NICE WORK!</h1><div class='btn'>PLAY AGAIN</div>`;  
+  win.play();  
+  clearInterval(countDown);  
+ } else {  
+  alphabet.innerHTML = `<h1>YOU LOST!</h1><div class='btn'>TRY AGAIN</div>`;  
+  lose.play();  
+  clearInterval(countDown);  
+ }  
+ document  
+  .querySelector('.btn')  
+  .addEventListener('click', () => location.reload());  
+};  
+const timer = function () {  
+ const timer = document.querySelector('#timer');  
+ let time = new Date(60000);  
+ const options = {  
+  minute: '2-digit',  
+  second: '2-digit',  
+ };  
+ const tick = function () {  
+  time -= 1000;  
+  timer.textContent = Intl.DateTimeFormat('en-US', options).format(time);  
+  if (time == 0) {  
+   finish(false);  
+   clearInterval(countDown);  
+  }  
+ };  
+ tick();  
+ countDown = setInterval(tick, 1000);  
+ return countDown;  
+};  
+timer();  
