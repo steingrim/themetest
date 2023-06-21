@@ -33,6 +33,9 @@ const passwordDashed = password.split('').map(letter => {
  if (letter === ' ') return ' ';  
  else if (letter === '’') return '’';  
  else if (letter === ',') return ',';  
+ else if (letter === '!') return '!';  
+ else if (letter === '?') return '?';  
+ else if (letter === '.') return '.';  
  else return '_';  
 });  
 const showPassword = function () {  
