@@ -1,14 +1,14 @@
 let letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';  
 const alphabet = document.getElementById('alphabet');  
 const passwordBoard = [  
- 'A bad workman always blames his tools',  
- 'A bird in hand is worth two in the bush',  
- 'An apple a day keeps the doctor away',  
- 'Better to wear out than to rust out',  
- 'Don’t judge a book by its cover',  
- 'Good things come to those who wait.',  
- 'If you can’t beat them, join them',  
- 'It’s no use crying over spilt milk',  
+ 'I go away for a few years and the town goes to hell',  
+ "You said you need to harvest today. We're here to help, no strings attached.",  
+ 'Well you can’t talk to him with out an attorney.',  
+ 'Everything I have got left is right there on that shelf.',  
+ 'I’m gonna need a hobby.',  
+ 'You can’t just ride into New Bern and start breaking china.',  
+ 'Guns? Guns are easy.',  
+ 'This house is too small for big secrets.',  
 ];  
 const passwordDiv = document.querySelector('#board');  
 const imgDiv = document.querySelector('#hangin-dude');  
